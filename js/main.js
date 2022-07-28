@@ -6,4 +6,4 @@
 
 import './draw-thumbnail.js';
 import './img-upload-form.js';
-// import './draw-big-picture.js';
+import './img-upload-scale.js';

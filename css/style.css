@@ -1408,3 +1408,8 @@ main {
 .hidden {
   display: none;
 }
+
+/* Чтобы сообщение об ошибке не отскакивало далеко от поля */
+.img-upload__field-wrapper:first-child .img-upload__error {
+  margin-top: -6px;
+  }

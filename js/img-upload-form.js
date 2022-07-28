@@ -46,17 +46,17 @@ const pristine = new Pristine(imgUploadForm, {
 function isHashtagRepeat (value) {
   const hashtagsLower = value.toLowerCase();
   const hashtagsArray = hashtagsLower.split(' ');
-  const booleanCountArray = [];
+  const booleanCounts = [];
   // Проверяем элемент, начиная с первого с каждым последующим. Когда все последующие проверены, проверяем второй элемент со следующими за ним, так как с первым проверка уже была. И так далее.
   for (let currentIndex = 0; currentIndex < hashtagsArray.length - 1; currentIndex++){
     for (let comparableElementIndex = currentIndex + 1; comparableElementIndex < hashtagsArray.length; comparableElementIndex++) {
       if (hashtagsArray[currentIndex] === hashtagsArray[comparableElementIndex]) {
-        booleanCountArray.push(true);
+        booleanCounts.push(true);
       }
-      booleanCountArray.push(false);
+      booleanCounts.push(false);
     }
   }
-  return !booleanCountArray.includes(true);
+  return !booleanCounts.includes(true);
 }
 
 pristine.addValidator(hashtagsElement,
@@ -71,14 +71,14 @@ pristine.addValidator(hashtagsElement,
 function isHashtagsValid (value) {
   const re = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}\s*$/;
   const hashtagsArray = value.split(' ');
-  const booleanCountArray = [];
+  const booleanCounts = [];
   for (let i = 0; hashtagsArray.length > i; i++) {
-    booleanCountArray.push(re.test(hashtagsArray[i]));
+    booleanCounts.push(re.test(hashtagsArray[i]));
   }
   if (value.length === 0) {
     return true;
   }
-  return !booleanCountArray.includes(false);
+  return !booleanCounts.includes(false);
 }
 pristine.addValidator(hashtagsElement,
   isHashtagsValid,
