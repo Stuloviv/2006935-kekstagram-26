@@ -3,6 +3,7 @@ import {makeElement} from './util.js';
 const picture = document.querySelector('.big-picture');
 const image = picture.querySelector('.big-picture__img');
 const commentsLoader = picture.querySelector('.comments-loader');
+const pictureClose = picture.querySelector('.big-picture__cancel');
 
 function addCommentItem (avatarSource, authorName, text) {
   const listItem = makeElement('li', 'social__comment');
@@ -75,8 +76,6 @@ function openPicture () {
       document.body.classList.remove('modal-open');
     }
   });
-
-  const pictureClose = picture.querySelector('.big-picture__cancel');
 
   pictureClose.addEventListener('click', () => {
     picture.classList.add('hidden');

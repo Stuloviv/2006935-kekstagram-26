@@ -1,9 +1,9 @@
-const uploadForm = document.querySelector('.img-upload__form');
-const scaleSmallerButton = uploadForm.querySelector('.scale__control--smaller');
-const scaleBiggerButton = uploadForm.querySelector('.scale__control--bigger');
-const scaleValue = uploadForm.querySelector('.scale__control--value');
-const scaleButton = uploadForm.querySelector('.img-upload__scale');
-const previewImage = uploadForm.querySelector('.img-upload__preview img');
+const uploadOverlay = document.querySelector('.img-upload__overlay');
+const scaleSmallerButton = uploadOverlay.querySelector('.scale__control--smaller');
+const scaleBiggerButton = uploadOverlay.querySelector('.scale__control--bigger');
+const scaleValue = uploadOverlay.querySelector('.scale__control--value');
+const scaleButton = uploadOverlay.querySelector('.img-upload__scale');
+const previewImage = uploadOverlay.querySelector('.img-upload__preview img');
 
 const DEFAULT_SCALE = 100;
 const SCALE_STEP = 25;
@@ -11,7 +11,7 @@ const SCALE_STEP = 25;
 scaleValue.value = `${DEFAULT_SCALE}%`;
 let scaleChange = DEFAULT_SCALE;
 
-function changeScale (evt) {
+function setScale (evt) {
 
   if (evt.target === scaleSmallerButton && scaleChange > SCALE_STEP) {
     scaleChange -= SCALE_STEP;
@@ -24,5 +24,4 @@ function changeScale (evt) {
   }
 }
 
-scaleButton.addEventListener('click', changeScale);
-
+scaleButton.addEventListener('click', setScale);
